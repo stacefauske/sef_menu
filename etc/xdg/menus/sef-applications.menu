@@ -1,0 +1,275 @@
+<!DOCTYPE Menu PUBLIC "-//freedesktop//DTD Menu 1.0//EN"
+ "http://www.freedesktop.org/standards/menu-spec/1.0/menu.dtd">
+ 
+ <!-- The 'something.directory' files mentioned are in the location
+      /usr/share/desktop-directories/ -->
+<Menu> <!-- Applications -->
+        <Name>Applications</Name>
+        <Directory>sef-menu-applications.directory</Directory>
+        <!-- Read standard .directory and .desktop file locations -->
+        <DefaultAppDirs/>
+        <DefaultDirectoryDirs/>
+        <!-- Read in overrides and child menus from applications-merged/ -->
+        <DefaultMergeDirs/>
+        <!-- START SUBMENUS -->
+        <!-- Accessories submenu -->
+        <Menu>
+                <Name>Accessories</Name>
+                <Directory>sef-utility.directory</Directory>
+    
+    
+                <Menu>  <!-- File Managers -->
+                  <Name>File Managers</Name>
+                  <Directory>sef-utility-filemgrs.directory</Directory>
+                  <Include>
+                    <And>
+                      <Category>FileManager</Category>
+                    </And>
+                  </Include>
+                </Menu>  <!-- END File Managers -->
+                
+                
+                <Menu>  <!-- Text Editors -->
+                  <Name>Text Editors</Name>
+                  <Directory>sef-utility-textedt.directory</Directory>
+                  <Include>
+                    <And>
+                      <Category>TextEditor</Category>
+                    </And>
+                  </Include>
+                </Menu>  <!-- END Text Editors -->
+                
+                
+                <Menu>  <!-- Terminals -->
+                  <Name>Terminals</Name>
+                  <Directory>sef-utility-terms.directory</Directory>
+                  <Include>
+                    <And>
+                      <Category>TerminalEmulator</Category>
+                    </And>
+                  </Include>
+                </Menu>  <!-- END Terminals -->
+    
+    
+                <Include>
+                        <And>
+                                <Category>Utility</Category>
+                                <!-- Accessibility spec must have either the Utility or Settings
+                                category, and we display an accessibility submenu already for
+                                the ones that do not have Settings, so don't display accessibility
+                                applications here -->
+                                <Not><Category>Accessibility</Category></Not>
+                                <Not><Category>System</Category></Not>
+                                <Not><Category>FileManager</Category></Not>
+                                <Not><Category>TextEditor</Category></Not>
+                                <Not><Category>TerminalEmulator</Category></Not>
+                        </And>
+                </Include>
+        </Menu> <!-- End Accessories -->
+        <!-- Accessibility submenu -->
+        <Menu>
+                <Name>Universal Access</Name>
+                <Directory>sef-utility-accessibility.directory</Directory>
+                <Include>
+                        <And>
+                                <Category>Accessibility</Category>
+                                <Not><Category>Settings</Category></Not>
+                        </And>
+                </Include>
+        </Menu> <!-- End Accessibility -->
+        <!-- Development Tools -->
+        <Menu>
+                <Name>Development</Name>
+                <Directory>sef-development.directory</Directory>
+                <Include>
+                        <And>
+                                <Category>Development</Category>
+                        </And>
+                        <Filename>emacs.desktop</Filename>
+                </Include>
+        </Menu> <!-- End Development Tools -->
+        <!-- Education -->
+        <Menu>
+                <Name>Education</Name>
+                <Directory>sef-education.directory</Directory>
+                <Include>
+                        <And>
+                                <Category>Education</Category>
+                        </And>
+                </Include>
+        </Menu> <!-- End Education -->
+        <!-- Games -->
+        <Menu>
+                <Name>Games</Name>
+                <Directory>sef-game.directory</Directory>
+                <Include>
+                        <And>
+                                <Category>Game</Category>
+                        </And>
+                </Include>
+        </Menu> <!-- End Games -->
+        <!-- Graphics -->
+        <Menu>
+                <Name>Graphics</Name>
+                <Directory>sef-graphics.directory</Directory>
+                <Include>
+                        <And>
+                                <Category>Graphics</Category>
+                                <Not><Category>Utility</Category></Not>
+                                <Not><Category>Printing</Category></Not>
+                                <Not><Category>Viewer</Category></Not>
+                        </And>
+                </Include>
+        </Menu> <!-- End Graphics -->
+        <!-- Internet -->
+        <Menu>
+                <Name>Internet</Name>
+                <Directory>sef-network.directory</Directory>
+    
+                <Menu>  <!-- Browsers-->
+                  <Name>Browsers</Name>
+                  <Directory>sef-network-browser.directory</Directory>
+                  <Include>
+                    <And>
+                      <Category>WebBrowser</Category>
+                    </And>
+                  </Include>
+                </Menu>  <!-- END Browsers -->
+    
+                <Menu>  <!-- sef other-->
+                  <Name>Remote Access</Name>
+                  <Directory>sef-network-remote.directory</Directory>
+                  <Include>
+                    <And>
+                      <Category>RemoteAccess</Category>
+                    </And>
+                  </Include>
+                </Menu>  <!-- END sef other -->
+    
+                <Include>
+                        <And>
+                                <Category>Network</Category>
+                                <Not><Category>WebBrowser</Category></Not>
+                                <Not><Category>RemoteAccess</Category></Not>
+                        </And>
+                </Include>
+        </Menu>  <!-- End Internet -->
+        <!-- Office -->
+        <Menu>
+                <Name>Office</Name>
+                <Directory>sef-office.directory</Directory>
+    
+                <Menu>  <!-- Libre Office-->
+                  <Name>Libre Office</Name>
+                  <Directory>sef-office-libre-office.directory</Directory>
+                  <Include>
+                    <And>
+                      <Category>LibreOffice</Category>
+                    </And>
+                  </Include>
+                </Menu>  <!-- END Libre Office -->
+    
+                <Menu>  <!-- PDF-->
+                  <Name>PDF</Name>
+                  <Directory>sef-office-pdf.directory</Directory>
+                  <Include>
+                    <And>
+                      <Category>Office</Category>
+                      <Category>Viewer</Category>
+                    </And>
+                  </Include>
+                </Menu>  <!-- PDF -->
+                
+                <Include>
+                        <And>
+                                <Category>Office</Category>
+                                <Not><Category>Viewer</Category></Not>
+                                <Not><Category>LibreOffice</Category></Not>
+                        </And>
+                </Include>
+        </Menu> <!-- End Office -->
+        <!-- Other -->
+        <Menu>
+                <Name>Other</Name>
+                <Directory>sef-other.directory</Directory>
+                <OnlyUnallocated/>
+    
+                <Menu>  <!-- sef other -->
+                  <Name>sef</Name>
+                  <Directory>sef-sef-other.directory</Directory>
+                  <Include>
+                    <And>
+                      <Category>sef</Category>
+                    </And>
+                  </Include>
+                </Menu>  <!-- END sef other -->
+    
+                <Include>
+                        <And>
+                                <Category>Other</Category>
+                                <Not><Category>Core</Category></Not>
+                                <Not><Category>Settings</Category></Not>
+                                <Not><Category>Screensaver</Category></Not>
+                        </And>
+                </Include>
+        </Menu> <!-- End Other -->
+        <!-- Preferences -->
+        <Menu>
+                <Name>Preferencess</Name>
+                <Directory>sef-settings.directory</Directory>
+                <OnlyUnallocated/>
+                <Include>
+                        <Or>
+                                <Category>Settings</Category>
+                                <Category>PackageManager</Category>
+                                <Category>System</Category>
+                        </Or>
+                </Include>
+                <Layout>
+                        <Merge type="menus"/>
+                        <Merge type="files"/>
+                </Layout>
+        </Menu> <!-- End Preferences -->
+        <!-- Print Scan & Fax -->
+        <Menu>
+                <Name>Printing Scanning Fax</Name>
+                <Directory>sef-printing.directory</Directory>
+                <Include>
+                        <And>
+                                <Category>Printing</Category>
+                        </And>
+                </Include>
+        </Menu>  <!-- End Print Scan & Fax -->
+        <!-- Sound & Video -->
+        <Menu>
+                <Name>Sound Video</Name>
+                <Directory>sef-audio-video.directory</Directory>
+                <Include>
+                        <And>
+                                <Category>AudioVideo</Category>
+                        </And>
+                </Include>
+        </Menu>  <!-- End Sound & Video -->
+        <!-- System Tools-->
+        <Menu>
+                <Name>System Tools</Name>
+                <Directory>sef-system-tools.directory</Directory>
+                <Include>
+                        <And>
+                                <Category>System</Category>
+                                <Not><Category>Settings</Category></Not>
+                                <Not><Category>Printing</Category></Not>
+<!--
+                                <Not><Category>PackageManager</Category></Not>
+-->
+                        </And>
+                </Include>
+        </Menu>  <!-- End System Tools -->
+        <!-- END SUBMENUS -->
+        <Layout>
+                <Merge type="files"/>
+                <Merge type="menus"/>
+                <Separator/>
+                <Menuname>DesktopSettings</Menuname>
+        </Layout>
+</Menu> <!-- End Applications -->
