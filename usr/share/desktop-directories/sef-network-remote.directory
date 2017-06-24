@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Remote Access
+Comment=Programs for remotely accessing network computers directly
+Icon=/usr/share/icons/Numix-Bevel/48x48/apps/dockremoteclient.svg
+Type=Directory
