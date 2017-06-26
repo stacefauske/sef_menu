@@ -1,0 +1,8 @@
+Package: sef-xdg-menu
+Priority: optional
+Section: main
+Maintainer: Stace Fauske
+Architecture: all
+Version: 0.0.1
+Depends: xdg-utils, numix-icon-theme-bevel
+Description: A menu setup that I like -sef
